@@ -1,4 +1,4 @@
-from app.controllers import app
+from app import app
 from flask import request, jsonify
 from db import user_list
 

@@ -1,4 +1,4 @@
-from app.controllers import app
+from app import app
 from flask_pymongo import PyMongo
 
 app.config['SECRET_KEY'] = '689727683effe5980db7ec9af471311b2ebf9c7f'
