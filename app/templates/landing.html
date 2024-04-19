@@ -1,10 +1,45 @@
 {% extends 'layout.html' %}
 {% block content %}
 <div>
-    <div class="container-fluid min-vh-75 bg-dark p-5">
-        <div class="input-group input-group-lg w-75  ">
-            <input type="text" class="form-control p-3 rounded-pill d-flex justify-content-center"
-                   aria-label="Dollar amount (with dot and two decimal places)">
+    <div class="container-fluid min-vh-75 bg-dark p-5"
+         style=" background-image: url('{{ url_for('static', filename='Villa.png') }}'); background-size: cover; background-repeat: no-repeat; background-position:center;">
+
+        <div class="card w-75 mx-auto p-3 rounded-pill ">
+            <div class="card-body">
+
+                <div class="d-flex justify-content-between">
+                    {% for item in data %}
+                    <div class="d-flex flex-row">
+                       <span class="pe-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                 class="{{item.icon}}" viewBox="0 0 16 16">
+                              <path d="{{item.path}} "/>
+                            </svg>
+                       </span>
+
+                        <span>
+                             <p class="text-dark lh-1" style="font-size:15px">{{item.title}}<br> <span
+                                     class="text-secondary"
+                                     style="font-size:12px">{{item.subtitle}}</span> </p>
+                        </span>
+
+
+                    </div>
+                    {% if not loop.last %}
+                    <div class='mx-2' style="border-left:1px solid grey; height:inherit"></div>
+                    {% else %}
+                    <div class='mx-2 rounded-circle bg-success' style="border:1px solid none; height:50px; width:50px">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                        </svg>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+
+
+            </div>
         </div>
 
         <div class="py-5 mt-5">
@@ -42,9 +77,9 @@
         </nav>
 
         <div class="row py-5">
-            <div class="col-sm-6 mb-3 mb-sm-0 rounded-5">
-                <div class="card text-bg-dark">
-                    <img src="..." class="card-img" alt="...">
+            <div class="col-sm-6 mb-3 mb-sm-0 ">
+                <div class="card text-bg-dark rounded-5">
+                    <img class="card-img" src="{{ url_for('static', filename='Villa.png') }}" alt="Image">
                     <div class="card-img-overlay">
                         <p class="card-text"><small>Last updated 3 mins ago</small></p>
                     </div>
@@ -86,7 +121,7 @@
                         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" >
+                <div class="collapse navbar-collapse">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Bank offers</a>
