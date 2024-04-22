@@ -28,10 +28,12 @@
                     {% if not loop.last %}
                     <div class='mx-2' style="border-left:1px solid grey; height:inherit"></div>
                     {% else %}
-                    <div class='mx-2 rounded-circle bg-success' style="border:1px solid none; height:50px; width:50px">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    <div class='mx-2 rounded-circle bg-success d-flex justify-content-center align-items-center'
+                         style="border:1px solid none; height:50px; width:50px">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                              class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                                  fill="white"/>
                         </svg>
                     </div>
                     {% endif %}
@@ -46,7 +48,12 @@
             <h1 class="text-white">SPACIOUS. <br> AFFORDABLE. <br> INSTANTLY RENTABLE.</h1>
             <h5 class="text-white">Short Term Rental Houses & Service Apartments</h5>
         </div>
-        <button type="button" class="btn btn-light btn-lg rounded-pill px-4 mb-5">Discover more</button>
+        <button type="button" class="btn btn-light btn-lg rounded-pill px-4 mb-5">Discover more
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                 class="bi bi-door-closed-fill" viewBox="0 0 16 16">
+                <path d="M12 1a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2a1 1 0 0 1 1-1zm-2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+            </svg>
+        </button>
     </div>
     <div class="container-fluid min-vh-75 p-5">
         <h2 class="text-center"><b>Offers for you</b></h2>
@@ -70,7 +77,11 @@
                         </li>
                     </ul>
                     <span class="navbar-text">
-                See all offers
+                See all offers<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                   class="bi bi-chevron-right ms-2" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                </svg>
               </span>
                 </div>
             </div>
@@ -91,11 +102,9 @@
     </div>
 
     <div class="container-fluid row bg-warning py-5" style="--bs-bg-opacity: .5;">
-        <div class="col-sm-6"></div>
         <div class="col-sm-6">
-            <h1><b>Our story in numbers</b></h1>
-            <div class="container overflow-hidden text-center">
-                <div class="row gy-5">
+            <div class="container text-center">
+                <div class="row g-2">
                     <div class="col-6">
                         <div class="p-3">Custom column padding</div>
                     </div>
@@ -111,39 +120,65 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-6">
+            <h1><b>Our story in numbers</b></h1>
+            <div class="container overflow-hidden text-center">
+                <div class="row gy-5 p-5">
+                    {% for item in content%}
+                    <div class="col-6">
+                        <div class="p-3 d-flex flex-row">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                       class="{{item.icon}}" viewBox="0 0 16 16">
+                      <path d="{{item.path}}"/>
+                    </svg></span>
+                            <span class='ps-2'>
+                               <h4 class="text-left ">{{item.title}}</h4>
+                                <h6>{{item.subtitle}}</h6>
+                            </span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>
     <div class="container-fluid min-vh-75 p-5">
         <h2 class="text-center"><b>Stay at our top unique properties</b></h2>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">All</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Bank offers</a>
+                            <a class="nav-link active" aria-current="page" href="#">City</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Hot deals</a>
+                            <a class="nav-link" href="#">Outdoors</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Promotions</a>
+                            <a class="nav-link" href="#">Beach</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Temple</a>
                         </li>
                     </ul>
-                    <span class="navbar-text">
-                See all offers
-              </span>
                 </div>
             </div>
         </nav>
+        <div class="row pt-5 pb-2">
+            <div class="col-sm-6 mb-3 mb-sm-0 ">
+                <div class="card text-bg-dark rounded-5">
+                    <img class="card-img" src="{{ url_for('static', filename='Villa.png') }}" alt="Image">
+                    <div class="card-img-overlay">
+                        <p class="card-text"><small>Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
 
-        <div class="row py-5">
-            <div class="col-sm-6 mb-3 mb-sm-0 rounded-5">
-                <div class="card text-bg-dark">
-                    <img src="..." class="card-img" alt="...">
+        </div>
+        <div class="row pb-5">
+            <div class="col-sm-4 mb-3 mb-sm-0">
+                <div class="card text-bg-dark rounded-5">
+                    <img class="card-img" src="{{ url_for('static', filename='Villa.png') }}" alt="Image">
                     <div class="card-img-overlay">
                         <p class="card-text"><small>Last updated 3 mins ago</small></p>
                     </div>
@@ -153,7 +188,36 @@
         </div>
 
     </div>
+    <div class="row m-0 min-vh-50">
+        <div class="col-sm-8 bg-warning">
+            <div class="p-5">
+                <h1>What we provide</h1>
+                {%for i in range(4)%}
+                <span class="w-50">
+                    <h3 class="py-3">Inspected Service Apartments</h3>
+                    {% if not loop.last%}
+                    <hr style='width:inherit'/>
+                    {% endif%}
+                </span>
+                {% endfor %}
+            </div>
 
+        </div>
+        <div class="col-sm-4"
+             style=" background-image: url('{{ url_for('static', filename='Villa.png') }}'); background-size: cover; background-repeat: no-repeat; background-position:center;"></div>
+    </div>
+    <div class="bg-dark text-white p-5">
+        <h3 class="py-3">Daily rental deals</h3>
+        <p class="pb-3">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
+            atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
+            sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+        <button type="button" class="btn btn-light btn-lg rounded-pill px-4 mb-5">Discover more
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                 class="bi bi-door-closed-fill" viewBox="0 0 16 16">
+                <path d="M12 1a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2a1 1 0 0 1 1-1zm-2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+            </svg>
+        </button>
+    </div>
 </div>
 
 {% endblock %}
