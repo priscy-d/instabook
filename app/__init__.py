@@ -1,8 +1,8 @@
 from flask import render_template
+from flask import request, jsonify, flash
+from app.application import db
 
-from flask import Flask
-
-app = Flask(__name__, template_folder='templates')
+from run import app
 
 data = [
     {'title': "Location", 'subtitle': 'Search destinations', "icon": "bi bi-geo-alt-fill",
@@ -26,6 +26,7 @@ content = [
      'path': "M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"}
 ]
 
+
 @app.route('/')
 def main():
     return render_template("landing.html", data=data, content=content)
@@ -34,3 +35,32 @@ def main():
 @app.route('/signup')
 def signup():
     return render_template("signup.html", title="Join us")
+
+# @app.route("/users", methods=['POST'])
+# def add_user():
+#     email = request.form['email']
+#     firstName = request.form['firstName']
+#     lastName = request.form['lastName']
+#     userName = request.form['userName']
+#     password = request.form['password']
+#     location = request.form['location']
+#     country = request.form['country']
+#
+#     new_obj = {
+#         "email": email,
+#         "firstName": firstName,
+#         "lastName": lastName,
+#         "userName": userName,
+#         "password": password,
+#         "location": location,
+#         "country": country,
+#
+#     }
+#
+#     db.user.insert_one(new_obj)
+#     flash('user successfully added')
+#     return "yeppi"
+
+
+
+from app.controllers import user
