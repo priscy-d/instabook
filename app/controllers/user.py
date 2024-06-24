@@ -4,16 +4,16 @@ from flask import request, jsonify, flash
 
 from flask import Flask
 # from run import app
-from flask_pymongo import PyMongo
+# from flask_pymongo import PyMongo
 
-app = Flask(__name__, template_folder='app/templates')
+app = Flask(__name__, template_folder='/home/priscilladunyoh/Personal/instabook/templates')
 
 app.config['SECRET_KEY'] = '689727683effe5980db7ec9af471311b2ebf9c7f'
 app.config[
     'MONGO_URI'] = "mongodb+srv://priscilladunyoh99:Q7OXtTY2z66B1vj3@cluster0.gsxghkt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
-mongo_client = PyMongo(app)
-db = mongo_client.db
+# mongo_client = PyMongo(app)
+# db = mongo_client.db
 
 # users = db['instabook']
 # if db is not None:

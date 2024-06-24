@@ -1,6 +1,6 @@
 from flask import render_template
-from flask import request, jsonify, flash
-from app.application import db
+# from flask import request, jsonify, flash
+# from app.application import db
 
 from run import app
 

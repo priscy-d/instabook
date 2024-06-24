@@ -2,14 +2,17 @@ from datetime import datetime
 
 from app.application import db
 
+from flask_wtf import FlaskForm
+from wtforms import StringField, TextAreaField, SelectField, SubmitField
+from wtforms.validators import DataRequired
 
-class User(db.document):
-    email = db.StringField(default='')
-    firstName = db.StringField(required=True)
-    lastName = db.StringField(required=True)
-    userName = db.StringField(unique=True, required=True)
-    password = db.StringField(required=True)
-    location = db.StringField(required=True)
-    country = db.StringField(required=True)
-    createdOn = db.DateTimeField(default=datetime.utcnow)
-    modifiedOn = db.DateTimeField(default=None, null=True)
+
+class User(FlaskForm):
+    submit = SubmitField("Add todo")
+    email = StringField('email', validators=[DataRequired()])
+    firstName = StringField('firstName', validators=[DataRequired()])
+    lastName = StringField('lastName', validators=[DataRequired()])
+    userName = StringField('userName', validators=[DataRequired()])
+    password = StringField('passwprd', validators=[DataRequired()])
+    location = StringField('location', validators=[DataRequired()])
+    country = StringField('country', validators=[DataRequired()])
